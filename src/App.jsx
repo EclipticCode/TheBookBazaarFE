@@ -1,11 +1,11 @@
 import React from 'react'
+import Marquee from './assets/Components/Marquee'
 
 const App = () => {
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+     <Marquee/>
+    
     </div>
   )
 }
