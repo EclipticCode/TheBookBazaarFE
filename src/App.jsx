@@ -1,18 +1,15 @@
 import React from 'react'
-import Marquee from './assets/Components/Marquee'
-import Feature from './assets/Components/Feature'
-import Socialmedia from './assets/Components/Socialmedia'
-import Navbar from './assets/Components/Navbar'
-import Footer from './assets/Components/Footer'
+import BasicPage from './assets/Components/BasicPage'
+import { BrowserRouter , Routes , Route } from 'react-router-dom'
 
 const App = () => {
   return (
-    <div> 
-     <Navbar/>
-     <Marquee/>
-     <Feature/>
-     <Socialmedia/>
-     <Footer/>
+    <div>
+      <BrowserRouter>
+      <Routes>
+        <Route path="*" element={<BasicPage/>}></Route>
+      </Routes>
+      </BrowserRouter> 
     </div>
   )
 }
