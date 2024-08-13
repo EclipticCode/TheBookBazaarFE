@@ -2,7 +2,7 @@ import React from "react";
 
 const Socialmedia = () => {
   return (
-    <div className="h-30 w-auto bg-zinc-900">
+    <div className="h-40 w-auto bg-zinc-900">
       <h2 className="text-xl font-light text-white text-center p-4">
         Join the #BBArmy
       </h2>

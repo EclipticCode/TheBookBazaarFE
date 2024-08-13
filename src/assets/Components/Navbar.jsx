@@ -15,7 +15,7 @@ const Navbar = () => {
       </div>
       {/* Login and Cart - right side */}
       <div className="flex items-center space-x-10 ml-auto">
-        <div className="bg-yellow-450 text-white font-bold py-1 px-4 rounded">
+        <div className="bg-yellow-450 hover:border-2 border-orange-800 text-white font-bold py-1 px-4 rounded">
           <button className="">Login</button>
         </div>
         <div className="">Cart</div>

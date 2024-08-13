@@ -7,9 +7,10 @@ const Marquee = () => {
         behavior="scroll"
         direction="left"
         scrollamount="5"
-        className="text-xl font-bold text-black animate-pulse"
+        className="text-lg font-semibold text-orange-800 animate-pulse"
       >
-        Welcome to Book Bazaar! <span className="pl-24">Sale on live!!</span>
+        Welcome to Book Bazaar! <span className="pl-60">Sale on live!!</span>
+        <span className="pl-60">Limited-Time Offers on Bestsellers!</span>
       </marquee>
     </div>
   );
