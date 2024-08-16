@@ -5,7 +5,7 @@ const Footer = () => {
     <div>
       <div className="lg:flex items-center justify-between m-10 ">
         <div className="max-w-xl">
-          <div className="font-semibold text-lg text-emerald-800">THE BOOK BAZAAR</div>
+          <div className="font-semibold text-lg text-cyan-800">THE BOOK BAZAAR</div>
           <div className="font-normal text-sm text-gray-700 mt-2">
             Your one-stop destination for a world of books. From timeless
             classics to the latest releases, we bring you a curated collection
@@ -14,10 +14,10 @@ const Footer = () => {
           </div>
         </div>
         <div className="max-w-xl sm:mt-4 lg:mt-0">
-          <div className="font-semibold text-lg text-emerald-800">Contact</div>
+          <div className="font-semibold text-lg text-cyan-800">Contact</div>
           <div className="">
-           <div className="text-gray-700"><span><i className="fa-solid fa-envelope pr-4 text-emerald-500 mt-2"></i></span>contact@thebookbazaar.com</div>
-           <div className="text-gray-700"><span><i className="fa-solid fa-phone pr-4 text-emerald-500 mt-2"></i></span>+91 9586247385</div>
+           <div className="text-gray-700"><span><i className="fa-solid fa-envelope pr-4 text-cyan-500 mt-2"></i></span>contact@thebookbazaar.com</div>
+           <div className="text-gray-700"><span><i className="fa-solid fa-phone pr-4 text-cyan-500 mt-2"></i></span>+91 9586247385</div>
           </div>
         </div>
       </div>
