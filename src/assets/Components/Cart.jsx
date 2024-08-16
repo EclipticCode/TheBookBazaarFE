@@ -40,7 +40,7 @@ const Cart = ({ cartItems }) => {
                 </div>
                 <div className="ml-10 flex flex-1 flex-col">
                   <div>
-                    <div className="flex justify-between text-2xl font-medium text-gray-700">
+                    <div className="flex justify-between text-xl font-medium text-gray-700">
                       <h3>
                         <a href={product.href}>{product.name}</a>
                         <select
