@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import bblogo from "../../assets/BB-Logo.svg";
-import { Link } from "react-router-dom";
+import axios from 'axios'
+
 
 const Registraion = () => {
+
+  const [email , setEmail] = useState("");
+  const [username , setUserName] = useState("");
+  const [password , setPassword] = useState("");
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const apiResponse = await axios.post(`http://localhost:4000/registration` , {
+        username : username , 
+        password : password
+    })
+    if(apiResponse.data._id){
+      alert("Registration Successful");
+    setEmail("")
+    setUserName("")
+    setPassword("")
+    }
+  }
+
   return (
     <div>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -17,11 +38,11 @@ const Registraion = () => {
           </h2>
         </div>
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form action="#" method="POST" className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-lg font-semibold leading-6 text-cyan-800"
               >
                 Email address
               </label>
@@ -30,18 +51,41 @@ const Registraion = () => {
                   id="email"
                   name="email"
                   type="email"
+                  placeholder="Enter Email address"
                   required
                   autoComplete="email"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-400 sm:text-sm sm:leading-6 px-2"
                 />
               </div>
             </div>
-
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-lg font-semibold leading-6 text-cyan-800"
+              >
+                Username
+              </label>
+              <div className="mt-2">
+                <input
+                  id="username"
+                  name="username"
+                  type="text"
+                  required
+                  autoComplete="username"
+                  placeholder="Enter Username"
+                  value={username}
+                  onChange={(e) => setUserName(e.target.value)}
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-400 sm:text-sm sm:leading-6 px-2"
+                />
+              </div>
+            </div>
             <div>
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="block text-lg font-semibold leading-6 text-cyan-800"
                 >
                   Password
                 </label>
@@ -50,34 +94,18 @@ const Registraion = () => {
                 <input
                   id="confirmPassword"
                   name="confirmPassword"
-                  type="confirmPassword"
+                  type="password"
                   required
                   autoComplete="current-password"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  placeholder="Enter Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-400 sm:text-sm sm:leading-6 px-2"
                 />
               </div>
             </div>
 
-            <div>
-              <div className="flex items-center justify-between">
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Confirm Password
-                </label>
-              </div>
-              <div className="mt-2">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  required
-                  autoComplete="current-password"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
+         
 
             <div>
               <button

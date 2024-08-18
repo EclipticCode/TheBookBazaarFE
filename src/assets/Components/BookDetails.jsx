@@ -78,6 +78,8 @@ const products = [
 
 const BookDetails = ( { addToCart }) => {
  
+  const username = localStorage.getItem("Login")
+  
   const { id } = useParams();
   const product = products.find((product) => product.id === id);
 
@@ -110,8 +112,8 @@ const BookDetails = ( { addToCart }) => {
           </div>
           <hr />
           <div className="mt-4">
-            <span className="bg-cyan-500 text-white py-2 px-4 rounded hover:bg-cyan-400 font-semibold">
-              <button onClick={() => {addToCart(product)}}><Link to={`/cart`}>Add to Cart</Link></button>
+            <span>
+              {username ? (<button className="bg-cyan-500 text-white py-2 px-4 rounded hover:bg-cyan-400 font-semibold" onClick={() => {addToCart(product)}}><Link to={`/cart`}>Add to Cart</Link></button> ): (<button className=" bg-gray-400 py-2 px-4 rounded font-semibold" onClick={() => {alert("Login to Add to Cart")}}>Add to Cart</button>)}
             </span>
           </div>{" "}
         </div>

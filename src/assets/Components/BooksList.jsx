@@ -84,6 +84,9 @@ const products = [
 ];
 
 const BooksList = () => {
+
+  const username = localStorage.getItem("Login")
+  
   return (
     <div>
       <div className="bg-white">
@@ -117,8 +120,8 @@ const BooksList = () => {
                     {product.price}
                   </p>
                 </div>
-                <div className="bg-cyan-500 group-hover:bg-cyan-400 text-white font-semibold py-1 rounded mt-4">
-                  <button className="items-center justify-center w-full text-center"><Link to={`/product/${product.id}`}>View Details</Link></button>
+                <div className="">
+                  {username ? ( <button className="bg-cyan-500 group-hover:bg-cyan-400 rounded text-white font-semibold items-center justify-center w-full text-center py-1 mt-4"><Link to={`/product/${product.id}`}>View Details</Link></button>) :  <button onClick={() => {alert("Login to View Details")}}className="text-white items-center justify-center w-full text-center bg-gray-400 rounded py-1 mt-4">View Details</button>}
                 </div>
               </div>
             ))}

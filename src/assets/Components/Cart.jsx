@@ -44,7 +44,7 @@ const Cart = ({ cartItems }) => {
                       <h3>
                         <a href={product.href}>{product.name}</a>
                         <select
-                          className="border-2 border-cyan-500 rounded ml-4 text-base"
+                          className="border-2 border-cyan-500 rounded ml-4 text-base p-1"
                           onChange={(event) => {
                             handleChange(event, product.id);
                           }}
@@ -59,7 +59,7 @@ const Cart = ({ cartItems }) => {
                       </h3>
                       <p className="ml-4">
                         <i className="fa-solid fa-indian-rupee-sign"></i>&nbsp;
-                        {product.price}
+                        {product.price} /- <span className="text-sm text-gray-700">per quantity</span>
                       </p>
                     </div>
                   </div>

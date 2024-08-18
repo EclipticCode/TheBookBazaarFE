@@ -19,6 +19,7 @@ const App = () => {
   const location = useLocation()
 
   const addToCart = (product) => {
+    alert("Item added to cart")
     setCartItems([...cartItems , product])
   }
 
