@@ -69,12 +69,6 @@ const Cart = ({ cartItems }) => {
                     </p>
 
                     <div className="flex">
-                      {/* <button
-                        type="button"
-                        className="font-medium text-indigo-600 hover:text-indigo-500"
-                      >
-                        Remove
-                      </button> */}
                     </div>
                   </div>
                 </div>

@@ -9,18 +9,20 @@ import BookDetails from "./assets/Components/BookDetails";
 import Cart from "./assets/Components/Cart";
 import Scroll from "./assets/Components/Scroll";
 import Animate from "./assets/Components/Animate";
+import Login from "./assets/Components/Login";
+import Registraion from "./assets/Components/Registraion";
 
 const App = () => {
 
   const [cartItems , setCartItems] = useState([])
-
+  
   const location = useLocation()
 
   const addToCart = (product) => {
     setCartItems([...cartItems , product])
   }
 
-  const shouldShowAnimateAndScroll = !(location.pathname.startsWith('/product/') || location.pathname === '/cart')
+  const shouldShowAnimateAndScroll = !(location.pathname.startsWith('/product/') || location.pathname === '/cart' || location.pathname === '/login' || location.pathname === '/registration')
 
   return (
     <div>
@@ -31,6 +33,8 @@ const App = () => {
           <Route path="/" element={<BooksList/>}></Route>
           <Route path="/product/:id" element={<BookDetails addToCart = { addToCart }/>}></Route>
           <Route path="/cart" element={<Cart cartItems = { cartItems }/>}></Route>
+          { <Route path="/login" element={<Login/>}></Route> }
+          <Route path="/registration" element={<Registraion/>}></Route>
         </Routes>
       <Feature />
       <Socialmedia />
