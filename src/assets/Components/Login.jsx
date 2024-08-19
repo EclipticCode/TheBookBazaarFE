@@ -15,7 +15,9 @@ const Login = () => {
    const apiResponse = await axios.get(`https://thebookbazaar-backend.onrender.com/login/${username}/${password}` 
 );
 if(apiResponse.data && apiResponse.data != "Login Failed"){
-  localStorage.setItem("Login" , apiResponse.data)
+  const { username , token } = apiResponse.data
+  localStorage.setItem("Login" , username)
+  localStorage.setItem("token" , token)
   alert("Login Successful");
   navigate('/')
   setUserName("")

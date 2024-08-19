@@ -8,6 +8,7 @@ const username = localStorage.getItem("Login")
 
 const handleLogout = () => {
   localStorage.setItem("Login" , "");
+  localStorage.setItem("token" , "")
   window.location.reload()
 }
 
