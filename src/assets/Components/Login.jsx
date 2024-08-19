@@ -12,7 +12,7 @@ const Login = () => {
 
  const handleSubmit = async (e) => {
    e.preventDefault();
-   const apiResponse = await axios.get(`http://localhost:4000/login/${username}/${password}` 
+   const apiResponse = await axios.get(`https://thebookbazaar-backend.onrender.com/login/${username}/${password}` 
 );
 if(apiResponse.data && apiResponse.data != "Login Failed"){
   localStorage.setItem("Login" , apiResponse.data)

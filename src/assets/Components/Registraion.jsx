@@ -12,7 +12,7 @@ const Registraion = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const apiResponse = await axios.post(`http://localhost:4000/registration` , {
+    const apiResponse = await axios.post(`https://thebookbazaar-backend.onrender.com/registration` , {
         username : username , 
         password : password
     })

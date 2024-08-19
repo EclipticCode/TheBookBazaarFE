@@ -1,8 +1,30 @@
-# React + Vite
+# The Book Bazaar 
+The Book Bazaar is an online store dedicated to providing users with a wide selection of books.The app aims to offer an easy-to-navigate platform where customers can browse, select and purchase their favourite books. This repository contains the Front-end code for The Book Bazaar App.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Folder Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+THEBOOKBAZAARFE/
+├── public/
+├── src/
+│ ├── assets/
+│ ├── Components/
+│ ├── App.jsx
+│ ├── main.jsx
+│
+├── .gitignore
+├── index.html
+├── package.json
+├── README.md
+
+
+## Tech Stack
+
+- HTML5
+- CSS3
+- Javascript
+- ReactJS
+- TailwindCSS
+
+
+[WebApp-Link](https://thebookbazaar-frontend.netlify.app/)
