@@ -29,4 +29,4 @@ THEBOOKBAZAARFE/
 
 ## Website Link
 
-Visit the Web App - [https://thebookbazaar-frontend.netlify.app/](https://thebookbazaar-frontend.netlify.app/)
+View the Live Application - [https://thebookbazaar-frontend.netlify.app/](https://thebookbazaar-frontend.netlify.app/)
