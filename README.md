@@ -4,18 +4,18 @@ The Book Bazaar is an online store dedicated to providing users with a wide sele
 
 ## Folder Structure
 
-THEBOOKBAZAARFE/
-├── public/
-├── src/
-│ ├── assets/
-│ ├── Components/
-│ ├── App.jsx
-│ ├── main.jsx
+THEBOOKBAZAARFE/   
+├── public/   
+├── src/   
+│ ├── assets/   
+│ ├── Components/   
+│ ├── App.jsx   
+│ ├── main.jsx   
 │
-├── .gitignore
-├── index.html
-├── package.json
-├── README.md
+├── .gitignore   
+├── index.html   
+├── package.json   
+├── README.md   
 
 
 ## Tech Stack
@@ -27,4 +27,4 @@ THEBOOKBAZAARFE/
 - TailwindCSS
 
 
-[WebApp-Link](https://thebookbazaar-frontend.netlify.app/)
+Visit the Web App - [https://thebookbazaar-frontend.netlify.app/](https://thebookbazaar-frontend.netlify.app/)
