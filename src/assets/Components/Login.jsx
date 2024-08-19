@@ -1,30 +1,35 @@
-import React , {useState} from "react";
+import React, { useState } from "react";
 import bblogo from "../../assets/BB-Logo.svg";
-import { Link , useNavigate} from "react-router-dom";
-import axios from 'axios';
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-    const [username , setUserName] = useState("");
-    const [password , setPassword] = useState("");
-    const navigate = useNavigate();
-  
-
- const handleSubmit = async (e) => {
-   e.preventDefault();
-   const apiResponse = await axios.get(`https://thebookbazaar-backend.onrender.com/login/${username}/${password}` 
-);
-if(apiResponse.data && apiResponse.data != "Login Failed"){
-  const { username , token } = apiResponse.data
-  localStorage.setItem("Login" , username)
-  localStorage.setItem("token" , token)
-  alert("Login Successful");
-  navigate('/')
-  setUserName("")
-  setPassword("")
-  return;
-}
- }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const apiResponse = await axios.get(
+      `https://thebookbazaar-backend.onrender.com/login/${username}/${password}`
+    );
+    try {
+      if (apiResponse.data && apiResponse.data != "Login Failed") {
+        const { username, token } = apiResponse.data;
+        localStorage.setItem("Login", username);
+        localStorage.setItem("token", token);
+        alert("Login Successful");
+        navigate("/");
+        setUserName("");
+        setPassword("");
+        return;
+      }
+      alert("Invalid Username or Password");
+    } catch (error) {
+      console.error("Error during login:", error);
+      alert("An error occurred. Please try again.");
+    }
+  };
 
   return (
     <div>
@@ -40,7 +45,12 @@ if(apiResponse.data && apiResponse.data != "Login Failed"){
           </h2>
         </div>
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form action="#" method="POST" className="space-y-6" onSubmit={handleSubmit}>
+          <form
+            action="#"
+            method="POST"
+            className="space-y-6"
+            onSubmit={handleSubmit}
+          >
             <div>
               <label
                 htmlFor="username"
@@ -90,7 +100,10 @@ if(apiResponse.data && apiResponse.data != "Login Failed"){
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-cyan-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-cyan-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onSubmit={() =>{handleSubmit()}}
+                className="flex w-full justify-center rounded-md bg-cyan-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-cyan-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                onSubmit={() => {
+                  handleSubmit();
+                }}
               >
                 {/* <Link to={'/'}> */}
                 Login

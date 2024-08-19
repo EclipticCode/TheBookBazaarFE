@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const products = [
   {
-    id:'001',
+    id: "001",
     name: "Rich Dad Poor Dad",
     href: "richDadPoorDad",
     price: "324",
@@ -13,7 +13,7 @@ const products = [
     author: "Robert Kiyosaki",
   },
   {
-    id: '002',
+    id: "002",
     name: "Think and Grow Rich",
     href: "thinkAndGrowRich",
     price: "139",
@@ -23,7 +23,7 @@ const products = [
     author: "Napoleon Hill",
   },
   {
-    id: '003',
+    id: "003",
     name: "Becoming",
     href: "becoming",
     price: "500",
@@ -33,7 +33,7 @@ const products = [
     author: "Michelle Obama",
   },
   {
-    id: '004',
+    id: "004",
     name: "Building a Second Brain",
     href: "buildingASecondBrain",
     price: "250",
@@ -43,7 +43,7 @@ const products = [
     author: "Tiago Forte",
   },
   {
-    id: '005',
+    id: "005",
     name: "The Power of Habit",
     href: "thePowerOfHabit",
     price: "629",
@@ -53,7 +53,7 @@ const products = [
     author: "Charles Duhigg",
   },
   {
-    id: '006',
+    id: "006",
     name: "Why We Sleep",
     href: "whyWeSleep",
     price: "349",
@@ -63,7 +63,7 @@ const products = [
     author: "Mathew Walker",
   },
   {
-    id: '007',
+    id: "007",
     name: "Million Dollar Weekend",
     href: "millionDollarWeekend",
     price: "749",
@@ -72,7 +72,7 @@ const products = [
     author: "Noah Kagan",
   },
   {
-    id: '008',
+    id: "008",
     name: "Atomic Habits",
     href: "atomicHabits",
     price: "449",
@@ -84,20 +84,62 @@ const products = [
 ];
 
 const BooksList = () => {
-
-  const username = localStorage.getItem("Login")
+  const username = localStorage.getItem("Login");
+  const [selectedSort , setSelectedSort] = useState("")
   
+  const callbackRatingHL = (a, b) => {
+    const firstBook = Number(a.price);
+    const secondBook = Number(b.price);
+     if (firstBook > secondBook) {
+      return -1;
+    }
+    return 1;
+  };
+
+  const callbackRatingLH = (a, b) => {
+    const firstBook = Number(a.price);
+    const secondBook = Number(b.price);
+     if (firstBook > secondBook) {
+      return 1;
+    }
+    return -1;
+  };
+
+  if(selectedSort?.length){
+    if (selectedSort === "Price High to Low") {
+      products.sort((a, b) => callbackRatingHL(a, b));
+    }
+    if(selectedSort === "Price Low to High"){
+      products.sort((a, b) => callbackRatingLH(a, b));
+    }
+  }
+
   return (
     <div>
       <div className="bg-white">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-          <h2 className="text-2xl font-bold tracking-tight text-cyan-800">
-            Our latest collections
-          </h2>
+          <div className="flex">
+            <div>
+              {" "}
+              <h2 className="text-2xl font-bold tracking-tight text-cyan-800">
+                Our latest collections
+              </h2>
+            </div>
+            <div className="text-2xl font-semibold text-cyan-800 ml-auto">
+              <select className="border-2 border-cyan-500 rounded ml-4 text-base p-1" onChange={(e) => setSelectedSort(e.target.value)}>
+                <option>Select</option>
+                <option value="Price High to Low">Price High to Low</option>
+                <option value="Price Low to High">Price Low to High</option>
+              </select>
+            </div>
+          </div>
 
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {products.map((product) => (
-              <div key={product.id} className="group relative border-2 rounded p-2 hover:drop-shadow-xl">
+              <div
+                key={product.id}
+                className="group relative border-2 rounded p-2 hover:drop-shadow-xl"
+              >
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                   <img
                     alt={product.imageAlt}
@@ -116,12 +158,25 @@ const BooksList = () => {
                     </p>
                   </div>
                   <p className="text-base font-medium text-gray-700">
-                    <i className="fa-solid fa-indian-rupee-sign"></i>
+                    <i className="fa-solid fa-indian-rupee-sign text-sm"></i>&nbsp;
                     {product.price}
                   </p>
                 </div>
                 <div className="">
-                  {username ? ( <button className="bg-cyan-500 group-hover:bg-cyan-400 rounded text-white font-semibold items-center justify-center w-full text-center py-1 mt-4"><Link to={`/product/${product.id}`}>View Details</Link></button>) :  <button onClick={() => {alert("Login to View Details")}}className="text-white items-center justify-center w-full text-center bg-gray-400 rounded py-1 mt-4">View Details</button>}
+                  {username ? (
+                    <button className="bg-cyan-500 group-hover:bg-cyan-400 rounded text-white font-semibold items-center justify-center w-full text-center py-1 mt-4">
+                      <Link to={`/product/${product.id}`}>View Details</Link>
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => {
+                        alert("Login to View Details");
+                      }}
+                      className="text-white items-center justify-center w-full text-center bg-gray-400 rounded py-1 mt-4"
+                    >
+                      View Details
+                    </button>
+                  )}
                 </div>
               </div>
             ))}
