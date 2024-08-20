@@ -16,7 +16,7 @@ const Registraion = () => {
         username : username , 
         password : password
     })
-    if(apiResponse.data._id){
+    if(apiResponse.data){
       alert("Registration Successful");
     setEmail("")
     setUserName("")
