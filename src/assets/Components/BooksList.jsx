@@ -1,87 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { booksLists } from "./constants";
 
-const products = [
-  {
-    id: "001",
-    name: "Rich Dad Poor Dad",
-    href: "richDadPoorDad",
-    price: "324",
-    imageSrc:
-      "https://gregory.ph/cdn/shop/products/BuyRichDadPoorDadinPhilippines-3_949c6c8a-0fb9-4c99-80d6-920b36dac648.jpg?v=1626535585",
-    imageAlt: "Rich Dad Poor Dad",
-    author: "Robert Kiyosaki",
-  },
-  {
-    id: "002",
-    name: "Think and Grow Rich",
-    href: "thinkAndGrowRich",
-    price: "139",
-    imageSrc:
-      "https://www.shesweatsdiamonds.com/wp-content/uploads/2017/02/Five-Things-I-Learned-From-Think-Grow-Rich-She-Sweats-Diamonds.jpg",
-    imageAlt: "Think and Grow Rich",
-    author: "Napoleon Hill",
-  },
-  {
-    id: "003",
-    name: "Becoming",
-    href: "becoming",
-    price: "500",
-    imageSrc:
-      "https://i0.wp.com/booksnest.co.uk/wp-content/uploads/2019/03/Becoming.png?fit=1080%2C436&ssl=1",
-    imageAlt: "Becoming",
-    author: "Michelle Obama",
-  },
-  {
-    id: "004",
-    name: "Building a Second Brain",
-    href: "buildingASecondBrain",
-    price: "250",
-    imageSrc:
-      "https://www.charterworks.com/content/images/2022/07/building-a-second-brainT.png",
-    imageAlt: "Building a Second Brain",
-    author: "Tiago Forte",
-  },
-  {
-    id: "005",
-    name: "The Power of Habit",
-    href: "thePowerOfHabit",
-    price: "629",
-    imageSrc:
-      "https://bookspringindia.in/cdn/shop/products/thepowerofhabit.png?v=1626257739",
-    imageAlt: "The Power of Habit",
-    author: "Charles Duhigg",
-  },
-  {
-    id: "006",
-    name: "Why We Sleep",
-    href: "whyWeSleep",
-    price: "349",
-    imageSrc:
-      "https://gregory.ph/cdn/shop/products/BuyWhyweSleepinthePhilippines2.jpg?v=1634124591",
-    imageAlt: "Why We Sleep",
-    author: "Mathew Walker",
-  },
-  {
-    id: "007",
-    name: "Million Dollar Weekend",
-    href: "millionDollarWeekend",
-    price: "749",
-    imageSrc: "https://miro.medium.com/v2/resize:fit:1400/0*TLO_WduhGlWGvuev",
-    imageAlt: "Million Dollar Weekend",
-    author: "Noah Kagan",
-  },
-  {
-    id: "008",
-    name: "Atomic Habits",
-    href: "atomicHabits",
-    price: "449",
-    imageSrc:
-      "https://media.licdn.com/dms/image/D4D12AQHZJRikGoFIKw/article-cover_image-shrink_720_1280/0/1696425885734?e=2147483647&v=beta&t=GpXawCAMJqzTZw1qYtR5FJNCAITvrAxqFTSrW9q7jdw",
-    imageAlt: "Atomic Habits",
-    author: "James Clear",
-  },
-];
 
 const BooksList = () => {
   const username = localStorage.getItem("Login");
@@ -107,10 +27,10 @@ const BooksList = () => {
 
   if(selectedSort?.length){
     if (selectedSort === "Price High to Low") {
-      products.sort((a, b) => callbackRatingHL(a, b));
+      booksLists.sort((a, b) => callbackRatingHL(a, b));
     }
     if(selectedSort === "Price Low to High"){
-      products.sort((a, b) => callbackRatingLH(a, b));
+      booksLists.sort((a, b) => callbackRatingLH(a, b));
     }
   }
 
@@ -135,7 +55,7 @@ const BooksList = () => {
           </div>
 
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-            {products.map((product) => (
+            {booksLists.map((product) => (
               <div
                 key={product.id}
                 className="group relative border-2 rounded p-2 hover:drop-shadow-xl"

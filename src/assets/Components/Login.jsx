@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import bblogo from "../../assets/BB-Logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { apiUrl } from "./constants";
 
 const Login = () => {
   const [username, setUserName] = useState("");
@@ -11,7 +12,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const apiResponse = await axios.get(
-      `https://thebookbazaar-backend.onrender.com/login/${username}/${password}`
+      `${apiUrl}/login/${username}/${password}`
     );
     try {
       if (apiResponse.data && apiResponse.data != "Login Failed") {

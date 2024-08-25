@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import bblogo from "../../assets/BB-Logo.svg";
 import axios from 'axios'
-
+import { apiUrl } from "./constants";
 
 const Registraion = () => {
 
@@ -12,7 +12,7 @@ const Registraion = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const apiResponse = await axios.post(`https://thebookbazaar-backend.onrender.com/registration` , {
+    const apiResponse = await axios.post(`${apiUrl}/registration` , {
         username : username , 
         password : password
     })
